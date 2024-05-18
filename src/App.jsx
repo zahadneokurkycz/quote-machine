@@ -12,7 +12,21 @@ class App extends React.Component {
 		this.state = {
 			text: q.text,
 			autor: q.author,
-			TwitterUri: escapeduri
+			TwitterUri: escapeduri,
+			TwitterLogo: 'twitter-x'
+		}
+		this.twitter = this.twitter.bind(this)
+	}
+
+	twitter(set) {
+		if (set == 'in') {
+			this.setState({
+				TwitterLogo: 'twitter'
+			})
+		} else {
+			this.setState({
+				TwitterLogo: 'twitter-x'
+			})
 		}
 	}
 
@@ -23,7 +37,7 @@ class App extends React.Component {
 		this.setState({
 			text: q.text,
 			autor: q.author,
-			TwitterUri: escapeduri
+			TwitterUri: escapeduri,
 		})
 	}
 
@@ -41,8 +55,8 @@ class App extends React.Component {
 							</figcaption>
 						</figure>
 						<br />
-						<div className='position-absolute end-0 pe-3'><button id='new-quote' className='btn btn-outline-success' onClick={() => this.getQuote()}>New Quote</button></div>
-						<a className='btn btn-outline-primary' id='tweet-quote' href={this.state.TwitterUri}>Tweet</a>
+						<div className='position-absolute end-0 pe-3'><button id='new-quote' className='btn btn-outline-success' onClick={() => this.getQuote()}><i class="bi bi-quote"></i> New Quote</button></div>
+						<a className='btn btn-outline-primary' id='tweet-quote' href={this.state.TwitterUri} onMouseOver={() => this.twitter('in')} onMouseOut={() => this.twitter('out')}><i className={'bi bi-' + this.state.TwitterLogo} /> Tweet</a>
 					</div>
 				</div>
 				<div className="card position-absolute top-50 start-50 translate-middle mobilebox text-center">
