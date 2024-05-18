@@ -7,17 +7,23 @@ class App extends React.Component {
 	constructor(props) {
 		super (props);
 		this.getQuote = this.getQuote.bind(this);
+		let uritoescape = 'hashtags=quotes&url=https://random-quotations.vercel.app/&text=' + q.text + '\nBy ' + q.author;
+		let escapeduri = 'https://twitter.com/intent/tweet?' + encodeURI(uritoescape);
 		this.state = {
 			text: q.text,
-			autor: q.author
+			autor: q.author,
+			TwitterUri: escapeduri
 		}
 	}
 
 	getQuote() {
 		var q = Quote.getQuote();
+		let uritoescape = 'hashtags=quotes&url=https://random-quotations.vercel.app/&text=' + q.text + '\nBy ' + q.author + '\n';
+		let escapeduri = 'https://twitter.com/intent/tweet?' + encodeURI(uritoescape);
 		this.setState({
 			text: q.text,
-			autor: q.author
+			autor: q.author,
+			TwitterUri: escapeduri
 		})
 	}
 
@@ -36,7 +42,7 @@ class App extends React.Component {
 						</figure>
 						<br />
 						<div className='position-absolute end-0 pe-3'><button id='new-quote' className='btn btn-outline-success' onClick={() => this.getQuote()}>New Quote</button></div>
-						<a className='btn btn-outline-primary' id='tweet-quote'>Tweet</a>
+						<a className='btn btn-outline-primary' id='tweet-quote' href={this.state.TwitterUri}>Tweet</a>
 					</div>
 				</div>
 				<div className="card position-absolute top-50 start-50 translate-middle mobilebox text-center">
@@ -54,6 +60,12 @@ function Themes() {
 		<div className="position-absolute bottom-0 end-0  translate-middle">
 			<themer-btn btnClass="btn btn-primary"></themer-btn>
 		</div>
+	)
+}
+
+function Source() {
+	return(
+		<a href='https://github.com/zahadneokurkycz/quote-machine' target='_blank' rel='noopener' className='btn btn-dark'><i class="bi bi-github"></i> Source Code</a>
 	)
 }
 
