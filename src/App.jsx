@@ -65,7 +65,7 @@ function Themes() {
 
 function Source() {
 	return(
-		<div className='position-absolute bottom-0 start-0 translate-middle'>
+		<div className='position-absolute bottom-0 start-0'>
 			<a href='https://github.com/zahadneokurkycz/quote-machine' target='_blank' rel='noopener' className='btn btn-dark'><i className="bi bi-github"></i> Source Code</a>
 		</div>
 	)
