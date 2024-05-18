@@ -2,6 +2,19 @@
  Another FCC project :)
 
 
+I now have some domains!
+
+<randomquotesgenerators.vercel.app>
+
+<quotesgenerators.vercel.app>
+
+<somerandomquotes.vercel.app>
+
+<quotations-generator.vercel.app>
+
+<random-quotations.vercel.app>
+
+
 [![CC BY 4.0][cc-by-shield]][cc-by]
 
 # License
