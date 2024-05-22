@@ -1,6 +1,7 @@
 # quote-machine
  Another FCC project :)
 
+Made with a vite get started template
 
 I now have some domains!
 
